@@ -8,7 +8,7 @@ Require this package, with [Composer](https://getcomposer.org/), in the root dir
 $ composer require houseoftech/laravel-recurring
 ```
 
-Note: If using with Laravel 5.x, require version 1.
+Version 4 supports Laravel 11, 12 and 13 on PHP 8.2+. For Laravel 6 use `^2.0`; for Laravel 5.x use version 1.
 
 ``` bash
 $ composer require houseoftech/laravel-recurring:1.5.3

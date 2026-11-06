@@ -74,7 +74,8 @@ class Config implements Arrayable
      */
     public function convertDate($date)
     {
-        return ($date instanceof DateTime ? $date : new DateTime($date));
+        // null keeps the historical behaviour of resolving to "now" without the PHP 8.1+ deprecation
+        return ($date instanceof DateTime ? $date : new DateTime($date ?? 'now'));
     }
 
     /**
