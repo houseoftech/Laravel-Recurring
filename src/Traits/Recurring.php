@@ -39,8 +39,8 @@ trait Recurring
             'count'      => $this->{config('laravel-recurring.count')},
             'by_day'     => $this->{config('laravel-recurring.by_day')},
             'until'      => $this->{config('laravel-recurring.until')},
-			'exceptions' => $this->{config('laravel-recurring.exceptions')},
-			'inclusions' => $this->{config('laravel-recurring.inclusions')},
+            'exceptions' => $this->{config('laravel-recurring.exceptions')},
+            'inclusions' => $this->{config('laravel-recurring.inclusions')},
         ];
     }
 }

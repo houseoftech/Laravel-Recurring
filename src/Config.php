@@ -14,7 +14,7 @@ namespace BrianFaust\Recurring;
 use Recurr\Frequency;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
-use \DateTime;
+use DateTime;
 
 class Config implements Arrayable
 {
@@ -80,7 +80,7 @@ class Config implements Arrayable
     /**
      * @return string
      */
-    public function getStartDate() : string
+    public function getStartDate(): string
     {
         return $this->startDate;
     }
@@ -90,7 +90,7 @@ class Config implements Arrayable
      *
      * @return \BrianFaust\Recurring\Config
      */
-    public function setStartDate($value) : Config
+    public function setStartDate($value): Config
     {
         $this->startDate = $this->convertDate($value);
 
@@ -110,7 +110,7 @@ class Config implements Arrayable
      *
      * @return \BrianFaust\Recurring\Config
      */
-    public function setEndDate($value) : Config
+    public function setEndDate($value): Config
     {
         $this->endDate = $this->convertDate($value);
 
@@ -120,7 +120,7 @@ class Config implements Arrayable
     /**
      * @return string
      */
-    public function getTimezone() : string
+    public function getTimezone(): string
     {
         return $this->timezone;
     }
@@ -130,7 +130,7 @@ class Config implements Arrayable
      *
      * @return Config
      */
-    public function setTimezone($value) : Config
+    public function setTimezone($value): Config
     {
         $this->timezone = $value;
 
@@ -140,7 +140,7 @@ class Config implements Arrayable
     /**
      * @return string
      */
-    public function getFrequency() : string
+    public function getFrequency(): string
     {
         return $this->frequency;
     }
@@ -150,7 +150,7 @@ class Config implements Arrayable
      *
      * @return \BrianFaust\Recurring\Config
      */
-    public function setFrequency($value) : Config
+    public function setFrequency($value): Config
     {
         $this->frequency = $value;
 
@@ -160,7 +160,7 @@ class Config implements Arrayable
     /**
      * @return string
      */
-    public function getByDay() : string
+    public function getByDay(): string
     {
         return $this->byDay;
     }
@@ -170,7 +170,7 @@ class Config implements Arrayable
      *
      * @return \BrianFaust\Recurring\Config
      */
-    public function setByDay($value) : Config
+    public function setByDay($value): Config
     {
         if (is_string($value)) {
             $value = explode(',', $value);
@@ -183,7 +183,7 @@ class Config implements Arrayable
     /**
      * @return string
      */
-    public function getUntil() : string
+    public function getUntil(): string
     {
         return $this->until;
     }
@@ -193,7 +193,7 @@ class Config implements Arrayable
      *
      * @return \BrianFaust\Recurring\Config
      */
-    public function setUntil($value) : Config
+    public function setUntil($value): Config
     {
         $this->until = $this->convertDate($value);
 
@@ -203,7 +203,7 @@ class Config implements Arrayable
     /**
      * @return int
      */
-    public function getInterval() : int
+    public function getInterval(): int
     {
         return $this->interval;
     }
@@ -213,7 +213,7 @@ class Config implements Arrayable
      *
      * @return \BrianFaust\Recurring\Config
      */
-    public function setInterval($value) : Config
+    public function setInterval($value): Config
     {
         $this->interval = $value;
 
@@ -223,7 +223,7 @@ class Config implements Arrayable
     /**
      * @return int
      */
-    public function getCount() : int
+    public function getCount(): int
     {
         return $this->count;
     }
@@ -233,7 +233,7 @@ class Config implements Arrayable
      *
      * @return \BrianFaust\Recurring\Config
      */
-    public function setCount($value) : Config
+    public function setCount($value): Config
     {
         $this->count = $value;
 
@@ -243,7 +243,7 @@ class Config implements Arrayable
     /**
      * @return string
      */
-    public function getExceptions() : string
+    public function getExceptions(): string
     {
         return $this->exceptions;
     }
@@ -253,11 +253,11 @@ class Config implements Arrayable
      *
      * @return \BrianFaust\Recurring\Config
      */
-    public function setExceptions($value) : Config
+    public function setExceptions($value): Config
     {
         if (is_string($value)) {
             $value = explode(',', $value);
-        } else if (is_a($value, 'Illuminate\Database\Eloquent\Collection')) {
+        } elseif (is_a($value, 'Illuminate\Database\Eloquent\Collection')) {
             $value = $value->pluck('date')->toArray();
         }
         $this->exceptions = $value;
@@ -268,7 +268,7 @@ class Config implements Arrayable
     /**
      * @return string
      */
-    public function getInclusions() : string
+    public function getInclusions(): string
     {
         return $this->inclusions;
     }
@@ -278,11 +278,11 @@ class Config implements Arrayable
      *
      * @return \BrianFaust\Recurring\Config
      */
-    public function setInclusions($value) : Config
+    public function setInclusions($value): Config
     {
         if (is_string($value)) {
             $value = explode(',', $value);
-        } else if (is_a($value, 'Illuminate\Database\Eloquent\Collection')) {
+        } elseif (is_a($value, 'Illuminate\Database\Eloquent\Collection')) {
             $value = $value->pluck('date')->toArray();
         }
         $this->inclusions = $value;
@@ -293,7 +293,7 @@ class Config implements Arrayable
     /**
      * @return array
      */
-    public function getFrequencies() : array
+    public function getFrequencies(): array
     {
         return $this->frequencies;
     }
@@ -303,7 +303,7 @@ class Config implements Arrayable
      *
      * @return array
      */
-    public function toArray() : array
+    public function toArray(): array
     {
         return [
             'start_date' => $this->startDate,

@@ -90,7 +90,7 @@ class Builder
     /**
      * @return \Recurr\RecurrenceCollection
      */
-    public function schedule() : RecurrenceCollection
+    public function schedule(): RecurrenceCollection
     {
         $transformerConfig = new ArrayTransformerConfig();
         $transformerConfig->enableLastDayOfMonthFix();
@@ -104,7 +104,7 @@ class Builder
     /**
      * @return \Recurr\RecurrenceCollection
      */
-    public function scheduleBetween($startDate, $endDate) : RecurrenceCollection
+    public function scheduleBetween($startDate, $endDate): RecurrenceCollection
     {
         $startDate = $this->config->convertDate($startDate);
         $endDate = $this->config->convertDate($endDate);
@@ -116,13 +116,13 @@ class Builder
         $transformer->setConfig($transformerConfig);
 
         $constraint = new \Recurr\Transformer\Constraint\BetweenConstraint($startDate, $endDate);
-		// The $countConstraintFailures in the ArrayTransformer::transform() method
-		// decides whether the transformer will stop looping or just count failures
-		// toward the limit of recurrences.
-		// true = count toward limit
-		// false = stop looping
-		// We want it to stop looping since we're searching between two dates
-		// so that once the dates go beyond the range it will return.
+        // The $countConstraintFailures in the ArrayTransformer::transform() method
+        // decides whether the transformer will stop looping or just count failures
+        // toward the limit of recurrences.
+        // true = count toward limit
+        // false = stop looping
+        // We want it to stop looping since we're searching between two dates
+        // so that once the dates go beyond the range it will return.
         return $transformer->transform($this->rule(), $constraint, $countConstraintFailures = false);
 
     }
@@ -130,7 +130,7 @@ class Builder
     /**
      * @return \Recurr\Rule
      */
-    public function rule() : Rule
+    public function rule(): Rule
     {
         $config = $this->getConfig();
 
@@ -178,7 +178,7 @@ class Builder
     /**
      * @return string
      */
-    public function getFrequencyType() : string
+    public function getFrequencyType(): string
     {
         $frequency = $this->getFromConfig('frequency');
 
@@ -202,7 +202,7 @@ class Builder
     /**
      * @return array
      */
-    public function getConfig() : array
+    public function getConfig(): array
     {
         return $this->config->toArray();
     }
@@ -210,7 +210,7 @@ class Builder
     /**
      * @return \BrianFaust\Recurring\Config
      */
-    private function buildConfig() : Config
+    private function buildConfig(): Config
     {
         return new Config($this->model->getRecurringConfig());
     }
